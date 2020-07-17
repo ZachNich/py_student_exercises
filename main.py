@@ -32,7 +32,6 @@ c19.addInstructors(sage)
 joe.assignExercise(zach, car_dealership)
 bryan.assignExercise(kaleb, car_dealership)
 sage.assignExercise(ronnie, frontend_capstone)
-joe.assignExercise(zach, nutshell)
 joe.assignExercise(tanner, nutshell)
 joe.assignExercise(ronnie, nutshell)
 joe.assignExercise(kaleb, nutshell)
@@ -42,3 +41,26 @@ sage.assignExercise(ronnie, daily_journal)
 
 print(zach, kaleb, ronnie, tanner)
 print(c40, c38, c19)
+
+exercises = [daily_journal, frontend_capstone, nutshell, car_dealership]
+students = [zach, kaleb, ronnie, tanner]
+
+def studentStatus(students):
+    status = ""
+    for student in students:
+        status += f"{student.first_name} {student.last_name} from {student.cohort} is working on"
+        for exercise in student.exercises:
+            if len(student.exercises) == 1:
+                status += f" {exercise.name}. \n"
+            elif len(student.exercises) == 2:
+                if student.exercises[-1] == exercise:
+                    status += f" and {exercise.name}. \n"
+                else:
+                    status += f" {exercise.name}"
+            else:
+                if student.exercises[-1] == exercise:
+                    status += f" and {exercise.name}. \n"
+                else:
+                    status += f" {exercise.name},"
+    return status
+print(studentStatus(students))
