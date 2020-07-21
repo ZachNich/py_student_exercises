@@ -63,4 +63,5 @@ def studentStatus(students):
                 else:
                     status += f" {exercise.name},"
     return status
+
 print(studentStatus(students))
